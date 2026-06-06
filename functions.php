@@ -26,6 +26,20 @@ define( 'HANDLE_PREFIX', 'cu' );
 require_once get_theme_file_path( 'includes/enqueue/init.php' );
 
 /**
+ * Enqueue Google Fonts
+ *
+ * @since 1.0.0
+ */
+require_once get_theme_file_path( 'includes/enqueue/google-fonts.php' );
+
+/**
+ * Register SCF field groups
+ *
+ * @since 1.0.0
+ */
+require_once get_theme_file_path( 'includes/fields/register-fields.php' );
+
+/**
  * Modify WordPress admin bar
  *
  * @since 1.0.0
