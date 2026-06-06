@@ -67,7 +67,7 @@ Review every page's converted output in the terminal. Check:
 **Step 3 — Write to DB (only after reviewing preview)**
 
 ```bash
-wp eval-file wp-content/themes/kcdw/_dev-docs/migrate-divi-to-blocks.php -- --write
+wp eval-file wp-content/themes/kcdw/_dev-docs/migrate-divi-to-blocks.php write
 ```
 
 After writing, open each page in the block editor and verify it looks
@@ -90,7 +90,7 @@ Local → Staging → Production
 wp db export backup-pre-migration-$(date +%Y%m%d).sql
 wp eval-file wp-content/themes/kcdw/_dev-docs/migrate-divi-to-blocks.php
 # Review output, then:
-wp eval-file wp-content/themes/kcdw/_dev-docs/migrate-divi-to-blocks.php -- --write
+wp eval-file wp-content/themes/kcdw/_dev-docs/migrate-divi-to-blocks.php write
 ```
 
 Open every converted page in the block editor. Fix any issues in the
@@ -104,7 +104,7 @@ SSH into staging, then:
 wp db export backup-pre-migration-$(date +%Y%m%d).sql
 wp eval-file wp-content/themes/kcdw/_dev-docs/migrate-divi-to-blocks.php
 # Review, then:
-wp eval-file wp-content/themes/kcdw/_dev-docs/migrate-divi-to-blocks.php -- --write
+wp eval-file wp-content/themes/kcdw/_dev-docs/migrate-divi-to-blocks.php write
 ```
 
 Have a second person review the staging site before proceeding.
@@ -117,7 +117,7 @@ Only after staging is clean and verified.
 wp db export backup-pre-migration-$(date +%Y%m%d).sql
 wp eval-file wp-content/themes/kcdw/_dev-docs/migrate-divi-to-blocks.php
 # Final review, then:
-wp eval-file wp-content/themes/kcdw/_dev-docs/migrate-divi-to-blocks.php -- --write
+wp eval-file wp-content/themes/kcdw/_dev-docs/migrate-divi-to-blocks.php write
 ```
 
 **Each environment has its own database.** Running on local does not affect

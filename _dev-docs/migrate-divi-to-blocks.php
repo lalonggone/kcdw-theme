@@ -7,8 +7,8 @@
  * result or writes it to the DB.
  *
  * Usage:
- *   wp eval-file _dev-docs/migrate-divi-to-blocks.php            # preview
- *   wp eval-file _dev-docs/migrate-divi-to-blocks.php -- --write # write to DB
+ *   wp eval-file _dev-docs/migrate-divi-to-blocks.php       # preview
+ *   wp eval-file _dev-docs/migrate-divi-to-blocks.php write # write to DB
  *
  * Always backup first:
  *   wp db export backup-pre-migration-$(date +%Y%m%d).sql
@@ -22,7 +22,7 @@ if ( ! class_exists( 'WP_CLI' ) ) {
 // Config
 // ---------------------------------------------------------------------------
 
-$write_mode = in_array( '--write', $GLOBALS['argv'] ?? [], true );
+$write_mode = in_array( 'write', $args );
 
 $stats = [
 	'processed' => 0,
