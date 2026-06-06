@@ -22,7 +22,7 @@ if ( ! class_exists( 'WP_CLI' ) ) {
 // Config
 // ---------------------------------------------------------------------------
 
-$write_mode = in_array( '--write', $args ?? [], true );
+$write_mode = in_array( '--write', $GLOBALS['argv'] ?? [], true );
 
 $stats = [
 	'processed' => 0,
