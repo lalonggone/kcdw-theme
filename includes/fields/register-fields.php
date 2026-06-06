@@ -23,17 +23,24 @@
 declare( strict_types = 1 );
 namespace CassidyDC\BlockTheme;
 
-if ( ! function_exists( 'acf_add_local_field_group' ) ) {
-	return;
-}
-
 // =========================================================================
-// Options page
+// Register options page + all field groups
+// Hooked to 'init' priority 20 — after SCF's own init at priority 5.
+// function_exists check is inside the callback, not at file-load time,
+// so it runs after SCF has fully initialised its API.
+// All SCF calls use the \acf_ global-namespace prefix to avoid any
+// namespace resolution ambiguity from the CassidyDC\BlockTheme namespace.
 // =========================================================================
 
-add_action( 'acf/init', function () {
-	if ( function_exists( 'acf_add_options_page' ) ) {
-		acf_add_options_page( [
+add_action( 'init', function () {
+
+	if ( ! \function_exists( 'acf_add_local_field_group' ) ) {
+		return;
+	}
+
+	// Options page (SCF free supports this; no Pro required).
+	if ( \function_exists( 'acf_add_options_page' ) ) {
+		\acf_add_options_page( [
 			'page_title' => 'KCDW Site Options',
 			'menu_title' => 'Site Options',
 			'menu_slug'  => 'kcdw-site-options',
@@ -43,18 +50,11 @@ add_action( 'acf/init', function () {
 			'redirect'   => false,
 		] );
 	}
-} );
-
-// =========================================================================
-// Register all field groups
-// =========================================================================
-
-add_action( 'acf/init', function () {
 
 	// -----------------------------------------------------------------------
 	// 1. Global Site Options
 	// -----------------------------------------------------------------------
-	acf_add_local_field_group( [
+	\acf_add_local_field_group( [
 		'key'      => 'group_kcdw_site_options',
 		'title'    => 'KCDW Site Options',
 		'location' => [ [ [ 'param' => 'options_page', 'operator' => '==', 'value' => 'kcdw-site-options' ] ] ],
@@ -134,7 +134,7 @@ add_action( 'acf/init', function () {
 	// -----------------------------------------------------------------------
 	// 2. Front Page Hero
 	// -----------------------------------------------------------------------
-	acf_add_local_field_group( [
+	\acf_add_local_field_group( [
 		'key'      => 'group_kcdw_front_page_hero',
 		'title'    => 'Front Page Hero',
 		'location' => [ [ [ 'param' => 'page_type', 'operator' => '==', 'value' => 'front_page' ] ] ],
@@ -206,7 +206,7 @@ add_action( 'acf/init', function () {
 	// -----------------------------------------------------------------------
 	// 3. Issue Page  (template: template-issue)
 	// -----------------------------------------------------------------------
-	acf_add_local_field_group( [
+	\acf_add_local_field_group( [
 		'key'      => 'group_kcdw_issue_page',
 		'title'    => 'Issue Page',
 		'location' => [ [ [ 'param' => 'page_template', 'operator' => '==', 'value' => 'template-issue' ] ] ],
@@ -278,7 +278,7 @@ add_action( 'acf/init', function () {
 	// -----------------------------------------------------------------------
 	// 4. Lawsuit  (template: template-lawsuit)
 	// -----------------------------------------------------------------------
-	acf_add_local_field_group( [
+	\acf_add_local_field_group( [
 		'key'      => 'group_kcdw_lawsuit',
 		'title'    => 'Lawsuit',
 		'location' => [ [ [ 'param' => 'page_template', 'operator' => '==', 'value' => 'template-lawsuit' ] ] ],
@@ -365,7 +365,7 @@ add_action( 'acf/init', function () {
 	// -----------------------------------------------------------------------
 	// 5. About Page  (template: template-about)
 	// -----------------------------------------------------------------------
-	acf_add_local_field_group( [
+	\acf_add_local_field_group( [
 		'key'      => 'group_kcdw_about',
 		'title'    => 'About',
 		'location' => [ [ [ 'param' => 'page_template', 'operator' => '==', 'value' => 'template-about' ] ] ],
@@ -442,7 +442,7 @@ add_action( 'acf/init', function () {
 	// 6. Take Action Sub-Pages  (template: template-action)
 	//    Covers: Sign the Petition, Show Up, Contact Officials, Spread the Word
 	// -----------------------------------------------------------------------
-	acf_add_local_field_group( [
+	\acf_add_local_field_group( [
 		'key'      => 'group_kcdw_take_action',
 		'title'    => 'Take Action',
 		'location' => [ [ [ 'param' => 'page_template', 'operator' => '==', 'value' => 'template-action' ] ] ],
@@ -656,7 +656,7 @@ add_action( 'acf/init', function () {
 	// -----------------------------------------------------------------------
 	// 7. Donate Page  (template: template-donate)
 	// -----------------------------------------------------------------------
-	acf_add_local_field_group( [
+	\acf_add_local_field_group( [
 		'key'      => 'group_kcdw_donate',
 		'title'    => 'Donate',
 		'location' => [ [ [ 'param' => 'page_template', 'operator' => '==', 'value' => 'template-donate' ] ] ],
@@ -692,4 +692,4 @@ add_action( 'acf/init', function () {
 		],
 	] );
 
-} ); // end acf/init
+}, 20 );
