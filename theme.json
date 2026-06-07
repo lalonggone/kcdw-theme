@@ -222,9 +222,6 @@
 	},
 
 	"customTemplates": [
-		{ "name": "template-issue",    "title": "Issue Page",     "postTypes": ["page"] },
-		{ "name": "template-lawsuit",  "title": "Lawsuit",        "postTypes": ["page"] },
-		{ "name": "template-about",    "title": "About",          "postTypes": ["page"] },
 		{ "name": "template-action",   "title": "Take Action Sub-Page", "postTypes": ["page"] },
 		{ "name": "template-donate",   "title": "Donate",         "postTypes": ["page"] }
 	],

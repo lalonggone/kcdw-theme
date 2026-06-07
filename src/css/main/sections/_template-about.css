@@ -1,0 +1,169 @@
+/**
+ * TEMPLATE: ABOUT
+ *
+ * @package KCDW/Theme/Styles
+ */
+
+/* --- Hero --- */
+
+.about-hero {
+	background-color: var(--wp--preset--color--kcdw-midnight);
+	color: var(--wp--preset--color--kcdw-mist);
+	padding-block: 5rem;
+}
+
+.about-hero__inner {
+	margin-inline: auto;
+	max-inline-size: 1080px;
+	padding-inline: 1.5rem;
+}
+
+.about-hero h1 {
+	color: var(--wp--preset--color--kcdw-white);
+	font-size: clamp(2rem, 5vw, 3.25rem);
+	line-height: 1;
+	margin-block: 0 1.5rem;
+}
+
+.about-hero__intro {
+	font-size: 1.125rem;
+	line-height: 1.75;
+	max-inline-size: 72ch;
+}
+
+/* --- Mission statement --- */
+
+.about-mission {
+	background-color: var(--wp--preset--color--kcdw-forest);
+	padding-block: 5rem;
+}
+
+.about-mission__inner {
+	margin-inline: auto;
+	max-inline-size: 800px;
+	padding-inline: 1.5rem;
+	text-align: center;
+}
+
+.about-mission blockquote {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.about-mission blockquote p {
+	color: var(--wp--preset--color--kcdw-white);
+	font-family: var(--wp--preset--font-family--barlow-condensed);
+	font-size: clamp(1.75rem, 4vw, 2.75rem);
+	font-weight: 900;
+	line-height: 1.2;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+.about-mission blockquote::before {
+	color: var(--wp--preset--color--kcdw-teal);
+	content: 'Mission';
+	display: block;
+	font-family: var(--wp--preset--font-family--ibm-plex-mono);
+	font-size: 0.6875rem;
+	font-weight: 500;
+	letter-spacing: 0.15em;
+	margin-block-end: 1.5rem;
+	text-transform: uppercase;
+}
+
+/* --- Coalition grid --- */
+
+.about-coalition {
+	padding-block: 5rem;
+}
+
+.about-coalition__inner {
+	margin-inline: auto;
+	max-inline-size: 1080px;
+	padding-inline: 1.5rem;
+}
+
+.about-coalition h2 {
+	margin-block-end: 2.5rem;
+}
+
+.coalition-grid {
+	display: grid;
+	gap: 2rem;
+	grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.coalition-member {
+	border-block-start: 3px solid var(--wp--preset--color--kcdw-sienna);
+	padding-block-start: 1.5rem;
+}
+
+.coalition-member__photo {
+	aspect-ratio: 1;
+	block-size: 80px;
+	border-radius: 50%;
+	display: block;
+	inline-size: 80px;
+	margin-block-end: 1rem;
+	object-fit: cover;
+}
+
+.coalition-member__name {
+	font-family: var(--wp--preset--font-family--barlow-condensed);
+	font-size: 1.25rem;
+	font-weight: 900;
+	margin-block: 0 0.125rem;
+	text-transform: uppercase;
+}
+
+.coalition-member__org {
+	color: var(--wp--preset--color--kcdw-sienna);
+	font-family: var(--wp--preset--font-family--ibm-plex-mono);
+	font-size: 0.6875rem;
+	font-weight: 500;
+	letter-spacing: 0.08em;
+	margin-block: 0 0.25rem;
+	text-transform: uppercase;
+}
+
+.coalition-member__title {
+	color: var(--wp--preset--color--kcdw-steel);
+	font-size: 0.875rem;
+	margin-block: 0 0.75rem;
+}
+
+.coalition-member__bio {
+	color: var(--wp--preset--color--kcdw-body);
+	font-size: 0.9375rem;
+	line-height: 1.65;
+	margin-block: 0;
+}
+
+/* --- Block content --- */
+
+.about-content {
+	padding-block: 4rem;
+}
+
+.about-content__inner {
+	margin-inline: auto;
+	max-inline-size: 720px;
+	padding-inline: 1.5rem;
+}
+
+@media screen and (width < 48rem) {
+	.about-hero,
+	.about-mission,
+	.about-coalition {
+		padding-block: 3rem;
+	}
+
+	.coalition-grid {
+		grid-template-columns: 1fr;
+	}
+}

@@ -1,0 +1,185 @@
+/**
+ * TEMPLATE: LAWSUIT
+ *
+ * @package KCDW/Theme/Styles
+ */
+
+/* --- Lawsuit header --- */
+
+.lawsuit-header {
+	background-color: var(--wp--preset--color--kcdw-forest);
+	color: var(--wp--preset--color--kcdw-mist);
+	padding-block: 4rem;
+}
+
+.lawsuit-header__inner {
+	margin-inline: auto;
+	max-inline-size: 1080px;
+	padding-inline: 1.5rem;
+}
+
+.lawsuit-header h1 {
+	color: var(--wp--preset--color--kcdw-white);
+	font-size: clamp(1.75rem, 4vw, 2.75rem);
+	line-height: 1.05;
+	margin-block: 0.75rem 1rem;
+}
+
+/* --- Status badge --- */
+
+.lawsuit-status-badge {
+	border-radius: 2px;
+	display: inline-block;
+	font-family: var(--wp--preset--font-family--ibm-plex-mono);
+	font-size: 0.6875rem;
+	font-weight: 500;
+	letter-spacing: 0.12em;
+	padding-block: 0.25rem;
+	padding-inline: 0.625rem;
+	text-transform: uppercase;
+}
+
+.lawsuit-status-badge--active {
+	background-color: var(--wp--preset--color--kcdw-sienna);
+	color: var(--wp--preset--color--kcdw-white);
+}
+
+.lawsuit-status-badge--pending {
+	background-color: var(--wp--preset--color--kcdw-steel);
+	color: var(--wp--preset--color--kcdw-white);
+}
+
+.lawsuit-status-badge--settled,
+.lawsuit-status-badge--dismissed {
+	background-color: var(--wp--preset--color--kcdw-mist);
+	color: var(--wp--preset--color--kcdw-midnight);
+}
+
+/* --- Plaintiffs line --- */
+
+.lawsuit-plaintiffs {
+	color: var(--wp--preset--color--kcdw-teal);
+	font-size: 0.9375rem;
+	margin-block-end: 1.5rem;
+}
+
+.lawsuit-plaintiffs strong {
+	color: var(--wp--preset--color--kcdw-mist);
+	font-weight: 600;
+}
+
+/* --- Case meta grid --- */
+
+.lawsuit-meta {
+	border-block-start: 1px solid rgba(255, 255, 255, 0.15);
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	margin-block: 0;
+	padding-block-start: 1.5rem;
+}
+
+.lawsuit-meta__item {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.lawsuit-meta__label {
+	color: var(--wp--preset--color--kcdw-mist);
+	font-family: var(--wp--preset--font-family--ibm-plex-mono);
+	font-size: 0.625rem;
+	font-weight: 500;
+	letter-spacing: 0.12em;
+	opacity: 0.6;
+	text-transform: uppercase;
+}
+
+.lawsuit-meta__value {
+	color: var(--wp--preset--color--kcdw-white);
+	font-size: 0.9375rem;
+}
+
+/* --- Summary --- */
+
+.lawsuit-summary {
+	padding-block: 4rem;
+}
+
+.lawsuit-summary__inner {
+	margin-inline: auto;
+	max-inline-size: 760px;
+	padding-inline: 1.5rem;
+}
+
+.lawsuit-summary h2 {
+	margin-block-end: 1rem;
+}
+
+.lawsuit-summary p {
+	font-size: 1.0625rem;
+	line-height: 1.75;
+}
+
+/* --- Latest update --- */
+
+.lawsuit-update {
+	background-color: var(--wp--preset--color--kcdw-midnight);
+	padding-block: 4rem;
+}
+
+.lawsuit-update__inner {
+	margin-inline: auto;
+	max-inline-size: 760px;
+	padding-inline: 1.5rem;
+}
+
+.lawsuit-update__date {
+	color: var(--wp--preset--color--kcdw-sienna);
+	font-family: var(--wp--preset--font-family--ibm-plex-mono);
+	font-size: 0.75rem;
+	font-weight: 500;
+	letter-spacing: 0.1em;
+	margin-block-end: 0.5rem;
+	text-transform: uppercase;
+}
+
+.lawsuit-update h2 {
+	color: var(--wp--preset--color--kcdw-white);
+	font-size: 1.25rem;
+	margin-block-end: 1rem;
+}
+
+.lawsuit-update p {
+	color: var(--wp--preset--color--kcdw-mist);
+	font-size: 1.0625rem;
+	line-height: 1.75;
+}
+
+.lawsuit-update__doc-link {
+	color: var(--wp--preset--color--kcdw-teal);
+	display: inline-block;
+	font-family: var(--wp--preset--font-family--ibm-plex-mono);
+	font-size: 0.8125rem;
+	margin-block-start: 1.5rem;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+	transition: color var(--transform-duration) ease-in-out;
+}
+
+.lawsuit-update__doc-link:hover,
+.lawsuit-update__doc-link:focus {
+	color: var(--wp--preset--color--kcdw-white);
+}
+
+/* --- Block content --- */
+
+.lawsuit-content {
+	padding-block: 4rem;
+}
+
+.lawsuit-content__inner {
+	margin-inline: auto;
+	max-inline-size: 720px;
+	padding-inline: 1.5rem;
+}
