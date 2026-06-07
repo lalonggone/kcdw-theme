@@ -40,6 +40,20 @@ require_once get_theme_file_path( 'includes/enqueue/google-fonts.php' );
 require_once get_theme_file_path( 'includes/fields/register-fields.php' );
 
 /**
+ * Route FSE pages to PHP templates at priority 99
+ *
+ * @since 1.0.0
+ */
+require_once get_theme_file_path( 'includes/core/template-routing.php' );
+
+/**
+ * Register Press Coverage custom post type
+ *
+ * @since 1.0.0
+ */
+require_once get_theme_file_path( 'includes/core/press-cpt.php' );
+
+/**
  * Modify WordPress admin bar
  *
  * @since 1.0.0
