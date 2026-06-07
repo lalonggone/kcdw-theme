@@ -94,3 +94,10 @@ require_once get_theme_file_path( 'includes/head/favicons.php' );
  * @since 1.0.0
  */
 require_once get_theme_file_path( 'includes/shortcodes/year.php' );
+
+/**
+ * Create [press_url] shortcode for single press coverage template
+ *
+ * @since 1.0.0
+ */
+require_once get_theme_file_path( 'includes/shortcodes/press-url.php' );

@@ -1,0 +1,43 @@
+<!-- Template: single-press_coverage.html -->
+<!-- Press Coverage single view. Fields (publication, author, date, url, excerpt) -->
+<!-- are registered as SCF fields on the press_coverage CPT in includes/fields/register-fields.php. -->
+
+<!-- wp:template-part {"slug":"header","tagName":"header","className":"site-header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"press-single","layout":{"type":"constrained"}} -->
+<main class="wp-block-group press-single">
+
+	<!-- wp:group {"className":"press-single__inner","layout":{"type":"constrained","contentSize":"760px"}} -->
+	<div class="wp-block-group press-single__inner">
+
+		<!-- Headline -->
+		<!-- wp:post-title {"level":1,"isLink":false} /-->
+
+		<!-- Publication + date meta row -->
+		<!-- wp:group {"className":"press-single__meta","layout":{"type":"flex","flexWrap":"wrap","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"1rem","margin":{"top":"0.75rem","bottom":"2rem"}}}} -->
+		<div class="wp-block-group press-single__meta">
+
+			<!-- wp:post-custom-field {"fieldName":"press_publication","className":"press-single__publication"} /-->
+
+			<!-- wp:post-custom-field {"fieldName":"press_author","className":"press-single__author","style":{"color":{"text":"#6b7280"},"typography":{"fontSize":"0.75rem"}}} /-->
+
+			<!-- wp:post-custom-field {"fieldName":"press_date","className":"press-single__date"} /-->
+
+		</div>
+		<!-- /wp:group -->
+
+		<!-- Excerpt / pull quote -->
+		<!-- wp:post-custom-field {"fieldName":"press_excerpt","className":"press-single__excerpt"} /-->
+
+		<!-- Link to original article via shortcode (renders as styled anchor) -->
+		<!-- wp:shortcode -->
+		[press_url]
+		<!-- /wp:shortcode -->
+
+	</div>
+	<!-- /wp:group -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer","className":"site-footer"} /-->
