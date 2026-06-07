@@ -75,6 +75,54 @@ correct before switching the live site to the new theme.
 
 ---
 
+---
+
+## seed-content.php
+
+Populates the local database with real KCDW content — SCF option fields,
+front-page hero fields, lawsuit data, issue page content, take action pages,
+and coalition member info. Also creates any pages in the nav structure that
+do not yet exist (Our Lawsuits, The Fight, Take Action, and their children).
+
+**What it sets:**
+
+- Global site options: alert bar, petition count, social URLs, next hearing
+- Home page (ID 6): hero headline, body, CTAs
+- About page (ID 68): coalition intro, mission statement, coalition_members repeater
+- Donate page (ID 135): headline, body, fiscal sponsor note
+- SB 258 page (ID 839): lawsuit fields (status, plaintiffs, court, summary, update)
+- Creates + seeds: Water Rights Lawsuit, all 6 issue pages, all 4 Take Action sub-pages, In the News sub-pages
+
+**Dry-run by default.** Logs every field and page that would be created.
+Nothing is written until you pass the `write` argument.
+
+### How to run
+
+**Step 1 — Backup**
+
+```bash
+wp db export backup-pre-seed-$(date +%Y%m%d).sql
+```
+
+**Step 2 — Preview**
+
+```bash
+wp eval-file wp-content/themes/kcdw/_dev-docs/seed-content.php
+```
+
+Review the output. Confirm page titles, slugs, field content look correct.
+
+**Step 3 — Write**
+
+```bash
+wp eval-file wp-content/themes/kcdw/_dev-docs/seed-content.php write
+```
+
+**This script is safe to re-run.** It checks for existing pages by slug
+before creating them, and `update_field()` overwrites rather than duplicates.
+
+---
+
 ## Deployment Pipeline
 
 **Always run scripts in this order. Never skip a stage.**
