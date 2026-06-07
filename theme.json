@@ -3,32 +3,6 @@
 	"version": 3,
 
 	"settings": {
-		"appearanceTools": false,
-		"background": {
-			"backgroundImage": false,
-			"backgroundSize": false
-		},
-		"blocks": {
-			"core/button": {
-				"border": {
-					"radius": false
-				}
-			},
-			"core/pullquote": {
-				"border": {
-					"color": false,
-					"radius": false,
-					"style": false,
-					"width": false
-				}
-			}
-		},
-		"border": {
-			"color": false,
-			"radius": false,
-			"style": false,
-			"width": false
-		},
 		"color": {
 			"background": false,
 			"button": false,
@@ -54,46 +28,6 @@
 				{ "slug": "kcdw-white",    "color": "#ffffff", "name": "White" }
 			],
 			"text": false
-		},
-		"custom": {},
-		"dimensions": {
-			"aspectRatio": false,
-			"aspectRatios": [],
-			"defaultAspectRatios": false,
-			"minHeight": false
-		},
-		"layout": {
-			"allowCustomContentAndWideSize": false,
-			"allowEditing": false,
-			"contentSize": "1080px",
-			"wideSize": "1280px"
-		},
-		"lightbox": {
-			"allowEditing": false,
-			"enabled": false
-		},
-		"position": {
-			"sticky": false
-		},
-		"shadow": {
-			"defaultPresets": false,
-			"presets": []
-		},
-		"spacing": {
-			"blockGap": null,
-			"customSpacingSize": false,
-			"defaultSpacingSizes": false,
-			"margin": false,
-			"padding": false,
-			"spacingScale": {},
-			"spacingSizes": [],
-			"units": [
-				"%",
-				"px",
-				"rem",
-				"vh",
-				"vw"
-			]
 		},
 		"typography": {
 			"customFontSize": false,
@@ -132,10 +66,9 @@
 			"textAlign": false,
 			"textColumns": false,
 			"textDecoration": false,
-			"textTransform": false,
-			"writingMode": false
+			"textTransform": false
 		},
-		"useRootPaddingAwareAlignments": false
+		"custom": {}
 	},
 
 	"styles": {
@@ -208,34 +141,11 @@
 					"fontWeight": "600"
 				}
 			}
-		},
-		"background": {},
-		"blocks": {},
-		"border": {},
-		"css": "",
-		"dimensions": {},
-		"filter": {},
-		"outline": {},
-		"shadow": {},
-		"spacing": {},
-		"variations": {}
+		}
 	},
 
 	"customTemplates": [
-		{ "name": "template-action",   "title": "Take Action Sub-Page", "postTypes": ["page"] },
-		{ "name": "template-donate",   "title": "Donate",         "postTypes": ["page"] }
-	],
-	"templateParts": [
-		{
-			"area": "header",
-			"name": "header",
-			"title": "Header"
-		},
-		{
-			"area": "footer",
-			"name": "footer",
-			"title": "Footer"
-		}
-	],
-	"patterns": []
+		{ "name": "template-action", "title": "Take Action Sub-Page", "postTypes": ["page"] },
+		{ "name": "template-donate", "title": "Donate",               "postTypes": ["page"] }
+	]
 }

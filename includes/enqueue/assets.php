@@ -8,9 +8,7 @@
 declare( strict_types = 1 );
 namespace KCDW\Theme;
 
-add_action( 'wp_enqueue_scripts',      __NAMESPACE__ . '\\enqueue_theme_assets' );
-add_action( 'after_setup_theme',       __NAMESPACE__ . '\\register_editor_styles' );
-add_action( 'init',                    __NAMESPACE__ . '\\register_block_pattern_categories' );
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_theme_assets' );
 
 function enqueue_theme_assets(): void {
 	wp_enqueue_style(
@@ -27,20 +25,4 @@ function enqueue_theme_assets(): void {
 		THEME_VERSION,
 		[ 'strategy' => 'defer' ]
 	);
-}
-
-function register_editor_styles(): void {
-	add_editor_style( 'assets/css/editor.css' );
-}
-
-function register_block_pattern_categories(): void {
-	$categories = [
-		'boxes'    => [ 'label' => __( 'Boxes', 'kcdw-theme' ) ],
-		'heroes'   => [ 'label' => __( 'Heroes', 'kcdw-theme' ) ],
-		'layouts'  => [ 'label' => __( 'Layouts', 'kcdw-theme' ) ],
-		'sections' => [ 'label' => __( 'Sections', 'kcdw-theme' ) ],
-	];
-	foreach ( $categories as $name => $props ) {
-		register_block_pattern_category( $name, $props );
-	}
 }

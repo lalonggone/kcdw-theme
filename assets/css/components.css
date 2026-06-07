@@ -4,6 +4,239 @@
  * @package KCDW/Theme/Styles
  */
 
+/* --- CLASSIC PRIMARY NAV --- */
+
+.site-header__nav .nav__menu {
+	display: flex;
+	flex-wrap: nowrap;
+	gap: 0.125rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.site-header__nav .nav__menu a {
+	color: var(--wp--preset--color--kcdw-mist);
+	display: block;
+	font-family: var(--wp--preset--font-family--barlow);
+	font-size: 0.8125rem;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	padding-block: 0.5rem;
+	padding-inline: 0.625rem;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: color var(--transform-duration) ease-in-out;
+	white-space: nowrap;
+}
+
+.site-header__nav .nav__menu a:hover,
+.site-header__nav .nav__menu a:focus {
+	color: var(--wp--preset--color--kcdw-teal);
+}
+
+.site-header__nav .menu-item {
+	position: relative;
+}
+
+.site-header__nav .sub-menu {
+	background-color: var(--wp--preset--color--kcdw-midnight);
+	border-top: 2px solid var(--wp--preset--color--kcdw-sienna);
+	list-style: none;
+	margin: 0;
+	min-width: 14rem;
+	opacity: 0;
+	padding-block: 0.5rem;
+	padding-inline: 0;
+	pointer-events: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	transition: opacity var(--transform-duration) ease-in-out;
+	z-index: 200;
+}
+
+.site-header__nav .menu-item:hover > .sub-menu,
+.site-header__nav .menu-item:focus-within > .sub-menu {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.site-header__nav .sub-menu a {
+	font-size: 0.8125rem;
+	font-weight: 400;
+	letter-spacing: 0.03em;
+	padding-block: 0.5rem;
+	padding-inline: 1rem;
+	text-transform: none;
+	white-space: normal;
+}
+
+/* Hamburger toggle (shown only on mobile) */
+.site-header__menu-toggle {
+	background: none;
+	border: none;
+	cursor: pointer;
+	display: none;
+	flex-direction: column;
+	gap: 5px;
+	padding: 0.5rem;
+}
+
+.site-header__menu-toggle span {
+	background-color: var(--wp--preset--color--kcdw-mist);
+	border-radius: 2px;
+	display: block;
+	height: 2px;
+	transition: all var(--transform-duration) ease-in-out;
+	width: 24px;
+}
+
+/* --- BUTTONS --- */
+
+.btn {
+	border-radius: 3px;
+	cursor: pointer;
+	display: inline-block;
+	font-family: var(--wp--preset--font-family--barlow);
+	font-size: 0.875rem;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	padding-block: 0.625rem;
+	padding-inline: 1.5rem;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: filter var(--transform-duration) ease-in-out;
+}
+
+.btn--sienna {
+	background-color: var(--wp--preset--color--kcdw-sienna);
+	color: var(--wp--preset--color--kcdw-white);
+}
+
+.btn--sienna:hover,
+.btn--sienna:focus {
+	color: var(--wp--preset--color--kcdw-white);
+	filter: brightness(1.15);
+}
+
+.btn--outline {
+	background: transparent;
+	border: 2px solid currentColor;
+	color: var(--wp--preset--color--kcdw-mist);
+}
+
+.btn--outline:hover,
+.btn--outline:focus {
+	background-color: var(--wp--preset--color--kcdw-mist);
+	color: var(--wp--preset--color--kcdw-midnight);
+}
+
+/* --- FOOTER COLUMN LAYOUT --- */
+
+.site-footer__main-inner {
+	display: grid;
+	gap: 2rem 4rem;
+	grid-template-columns: 2fr 1fr 1fr 1fr;
+	margin-inline: auto;
+	max-inline-size: 1080px;
+}
+
+.site-footer__col-heading {
+	color: var(--wp--preset--color--kcdw-teal);
+	font-family: var(--wp--preset--font-family--barlow-condensed);
+	font-size: 0.6875rem;
+	font-weight: 600;
+	letter-spacing: 0.1em;
+	margin-block: 0 1rem;
+	text-transform: uppercase;
+}
+
+.site-footer__nav-list {
+	font-size: 0.875rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.site-footer__nav-list li + li {
+	margin-block-start: 0.5rem;
+}
+
+.site-footer__tagline {
+	font-size: 0.875rem;
+	margin-block: 1rem 1.5rem;
+}
+
+.site-footer__social {
+	display: flex;
+	gap: 0.75rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.site-footer__donate-text {
+	font-size: 0.875rem;
+	margin-block: 0 1.5rem;
+}
+
+.site-footer__bottom-inner {
+	margin-inline: auto;
+	max-inline-size: 1080px;
+}
+
+@media screen and (width < 64rem) {
+	.site-footer__main-inner {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media screen and (width < 48rem) {
+	.site-header__menu-toggle {
+		display: flex;
+	}
+
+	.site-header__cta {
+		display: none;
+	}
+
+	.site-header__nav {
+		background-color: var(--wp--preset--color--kcdw-midnight);
+		display: none;
+		inset-inline: 0;
+		padding-block: 1rem;
+		padding-inline: 1.5rem;
+		position: absolute;
+		top: 100%;
+		z-index: 150;
+	}
+
+	.site-header__nav.is-open {
+		display: block;
+	}
+
+	.site-header__nav .nav__menu {
+		flex-direction: column;
+	}
+
+	.site-header__nav .sub-menu {
+		border-top: none;
+		border-inline-start: 2px solid var(--wp--preset--color--kcdw-sienna);
+		margin-block-start: 0.25rem;
+		margin-inline-start: 1rem;
+		opacity: 1;
+		padding-block: 0.25rem;
+		pointer-events: auto;
+		position: static;
+	}
+
+	.site-footer__main-inner {
+		grid-template-columns: 1fr;
+	}
+}
+
 /* --- HEADER --- */
 
 .site-header {
