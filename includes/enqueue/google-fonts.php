@@ -2,11 +2,11 @@
 /**
  * Enqueue Google Fonts: Barlow Condensed, Barlow, IBM Plex Mono
  *
- * @package CassidyDC\BlockTheme\Functions
+ * @package KCDW\Theme\Functions
  */
 
 declare( strict_types = 1 );
-namespace CassidyDC\BlockTheme;
+namespace KCDW\Theme;
 
 add_action( 'wp_enqueue_scripts',      __NAMESPACE__ . '\\enqueue_google_fonts' );
 add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\enqueue_google_fonts' );

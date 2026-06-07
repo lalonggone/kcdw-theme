@@ -74,7 +74,7 @@ $has_content  = trim( strip_tags( get_the_content() ) ) !== '';
 <body <?php body_class( 'template-lawsuit' ); ?>>
 <?php wp_body_open(); ?>
 
-<?php block_template_part( 'header' ); ?>
+<header class="site-header"><?php block_template_part( 'header' ); ?></header>
 
 <main id="main-content">
 

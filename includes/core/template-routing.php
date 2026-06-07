@@ -6,11 +6,11 @@
  * block renderer. We run at 99 so our PHP page templates win for pages that
  * have a custom template assigned.
  *
- * @package CassidyDC\BlockTheme
+ * @package KCDW\Theme
  */
 
 declare( strict_types = 1 );
-namespace CassidyDC\BlockTheme;
+namespace KCDW\Theme;
 
 add_filter( 'template_include', function ( string $template ): string {
 

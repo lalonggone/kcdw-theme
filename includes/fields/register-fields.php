@@ -9,11 +9,11 @@
  *
  * Everything else is hardcoded in PHP templates.
  *
- * @package CassidyDC\BlockTheme\Fields
+ * @package KCDW\Theme\Fields
  */
 
 declare( strict_types = 1 );
-namespace CassidyDC\BlockTheme;
+namespace KCDW\Theme;
 
 add_action( 'init', function () {
 

@@ -4,7 +4,7 @@
  * Slug: cassidydc-block-theme/theming-404-section
  * Inserter: No
  *
- * @package CassidyDC\BlockTheme\Patterns
+ * @package KCDW\Theme\Patterns
  * @version 1.0.0
  */
 

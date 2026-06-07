@@ -2,11 +2,11 @@
 /**
  * Press Coverage custom post type
  *
- * @package CassidyDC\BlockTheme
+ * @package KCDW\Theme
  */
 
 declare( strict_types = 1 );
-namespace CassidyDC\BlockTheme;
+namespace KCDW\Theme;
 
 add_action( 'init', function () {
 

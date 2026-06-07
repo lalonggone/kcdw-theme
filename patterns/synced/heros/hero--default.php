@@ -7,7 +7,7 @@
  * Synced Block ID: xxxx
  * Inserter: No
  *
- * @package CassidyDC\BlockTheme\Patterns
+ * @package KCDW\Theme\Patterns
  * @version 1.0.0
  */
 

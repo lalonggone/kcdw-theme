@@ -12,6 +12,17 @@
 	z-index: 100;
 }
 
+/* Offset sticky header below the WP admin bar when logged in */
+html.admin-bar .site-header {
+	top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+	html.admin-bar .site-header {
+		top: 46px;
+	}
+}
+
 .site-header__inner {
 	align-items: center;
 	display: flex;

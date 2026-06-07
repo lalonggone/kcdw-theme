@@ -2,13 +2,13 @@
 /**
  * Theme Functions
  *
- * @package CassidyDC\BlockTheme\Functions
+ * @package KCDW\Theme\Functions
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  * @version 1.0.0
  */
 
 declare( strict_types = 1 );
-namespace CassidyDC\BlockTheme;
+namespace KCDW\Theme;
 
 /**
  * Create theme constants.
@@ -16,7 +16,7 @@ namespace CassidyDC\BlockTheme;
  * @since 1.0.0
  */
 define( 'THEME_VERSION', wp_get_theme()->get( 'Version' ) );
-define( 'HANDLE_PREFIX', 'cu' );
+define( 'HANDLE_PREFIX', 'kcdw' );
 
 /**
  * Initialize the assets loader

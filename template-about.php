@@ -50,7 +50,7 @@ $coalition = [
 <body <?php body_class( 'template-about' ); ?>>
 <?php wp_body_open(); ?>
 
-<?php block_template_part( 'header' ); ?>
+<header class="site-header"><?php block_template_part( 'header' ); ?></header>
 
 <main id="main-content">
 

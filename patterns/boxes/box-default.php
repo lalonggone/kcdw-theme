@@ -6,7 +6,7 @@
  * Keywords: boxes, default box, box
  * Viewport Width: 1440
  *
- * @package CassidyDC\BlockTheme\Patterns
+ * @package KCDW\Theme\Patterns
  * @since 1.0.0
  * @version 1.0.0
  */

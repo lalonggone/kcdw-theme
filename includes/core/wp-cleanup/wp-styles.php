@@ -2,12 +2,12 @@
 /**
  * Remove unwanted Core WordPress styles
  *
- * @package CassidyDC\BlockTheme\Functions
+ * @package KCDW\Theme\Functions
  * @version 1.0.0
  */
 
 declare( strict_types = 1 );
-namespace CassidyDC\BlockTheme;
+namespace KCDW\Theme;
 
 /**
  * Remove unwanted core styles
