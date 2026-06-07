@@ -1,0 +1,354 @@
+/**
+ * KCDW Theme — Components: header, footer, buttons, cards, alert bar, stat blocks
+ *
+ * @package KCDW/Theme/Styles
+ */
+
+/* --- HEADER --- */
+
+.site-header {
+	background-color: var(--wp--preset--color--kcdw-midnight);
+	color: var(--wp--preset--color--kcdw-mist);
+	position: sticky;
+	top: 0;
+	z-index: 100;
+}
+
+html.admin-bar .site-header {
+	top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+	html.admin-bar .site-header {
+		top: 46px;
+	}
+}
+
+.site-header__inner {
+	align-items: center;
+	display: flex;
+	flex-wrap: nowrap;
+	gap: 2rem;
+	justify-content: space-between;
+	padding-block: 0.875rem;
+	padding-inline: 1.5rem;
+}
+
+.site-header .wp-block-navigation a {
+	color: var(--wp--preset--color--kcdw-mist);
+	font-family: var(--wp--preset--font-family--barlow);
+	font-size: 0.8125rem;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: color var(--transform-duration) ease-in-out;
+}
+
+.site-header .wp-block-navigation a:hover,
+.site-header .wp-block-navigation a:focus {
+	color: var(--wp--preset--color--kcdw-teal);
+}
+
+.site-header .wp-block-navigation__submenu-container {
+	background-color: var(--wp--preset--color--kcdw-midnight);
+	border-top: 2px solid var(--wp--preset--color--kcdw-sienna);
+	min-width: 14rem;
+	padding-block: 0.5rem;
+}
+
+.site-header .wp-block-navigation__submenu-container a {
+	font-size: 0.8125rem;
+	font-weight: 400;
+	letter-spacing: 0.03em;
+	padding-block: 0.5rem;
+	padding-inline: 1rem;
+	text-transform: none;
+}
+
+.site-header .wp-block-navigation-item__label + svg {
+	fill: var(--wp--preset--color--kcdw-mist);
+	margin-inline-start: 0.25rem;
+}
+
+.site-header .wp-block-navigation__responsive-container.is-menu-open {
+	background-color: var(--wp--preset--color--kcdw-midnight);
+}
+
+.site-header .wp-block-button__link {
+	font-size: 0.8125rem;
+	letter-spacing: 0.08em;
+	padding-block: 0.5rem;
+	padding-inline: 1.25rem;
+	text-transform: uppercase;
+}
+
+@media screen and (width < 48rem) {
+	.site-header__inner {
+		padding-inline: 1rem;
+	}
+}
+
+/* --- FOOTER --- */
+
+.site-footer {
+	background-color: var(--wp--preset--color--kcdw-forest);
+	color: var(--wp--preset--color--kcdw-mist);
+}
+
+.site-footer a {
+	color: var(--wp--preset--color--kcdw-mist);
+	text-decoration: none;
+	transition: color var(--transform-duration) ease-in-out;
+}
+
+.site-footer a:hover,
+.site-footer a:focus {
+	color: var(--wp--preset--color--kcdw-teal);
+}
+
+.site-footer__main {
+	padding-block: 3rem;
+	padding-inline: 1.5rem;
+}
+
+.site-footer__bottom {
+	background-color: var(--wp--preset--color--kcdw-midnight);
+	font-size: 0.8125rem;
+	padding-block: 1rem;
+	padding-inline: 1.5rem;
+}
+
+.site-footer__bottom p {
+	color: var(--wp--preset--color--kcdw-mist);
+	margin-block: 0;
+	opacity: 0.7;
+}
+
+@media screen and (width < 48rem) {
+	.site-footer__main {
+		padding-inline: 1rem;
+	}
+
+	.site-footer__bottom {
+		padding-inline: 1rem;
+	}
+}
+
+/* --- BOXES --- */
+
+.boxes-wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.boxes-wrapper > * {
+	inline-size: 100%;
+	margin-block: 0;
+}
+
+.box {
+	background: var(--wp--preset--color--primary);
+	inline-size: 100%;
+}
+
+/* --- GRIDS --- */
+
+.grid {
+	display: grid;
+}
+
+.grid > * {
+	inline-size: 100%;
+}
+
+:where(.grid-container-4) {
+	grid-template-columns: repeat(4, 1fr);
+}
+
+:where(.grid-container-3) {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+:where(.grid-container-2) {
+	grid-template-columns: repeat(2, 1fr);
+}
+
+@media screen and (width < calc((1120 / 16) * 1rem)) {
+	:where(.grid-container-4, .grid-container-3) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media screen and (width < calc((768 / 16) * 1rem)) {
+	:where(.grid-container-4, .grid-container-3, .grid-container-2) {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* --- HEROES (BASE) --- */
+
+.page-hero {
+	display: flex;
+}
+
+.page-hero .page-title {
+	margin-block: 0 !important;
+}
+
+/* --- ALERT BAR --- */
+
+.alert-bar {
+	padding-block: 0.875rem;
+	padding-inline: 1.5rem;
+}
+
+.alert-bar__text {
+	font-family: var(--wp--preset--font-family--ibm-plex-mono);
+	font-size: 0.8125rem;
+	font-weight: 500;
+	margin-block: 0;
+}
+
+.alert-bar__text a {
+	color: var(--wp--preset--color--kcdw-white);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+@media screen and (width < 48rem) {
+	.alert-bar {
+		padding-inline: 1rem;
+	}
+}
+
+/* --- SHARED SECTION UTILITIES --- */
+
+.section__eyebrow {
+	font-family: var(--wp--preset--font-family--ibm-plex-mono);
+	font-size: 0.6875rem;
+	font-weight: 500;
+	letter-spacing: 0.15em;
+	margin-block-end: 0.25rem;
+	text-transform: uppercase;
+}
+
+.card__readmore {
+	font-family: var(--wp--preset--font-family--ibm-plex-mono);
+	font-size: 0.75rem;
+	font-weight: 500;
+	letter-spacing: 0.08em;
+	margin-block-start: auto;
+	padding-block-start: 1rem;
+	text-transform: uppercase;
+}
+
+.card__readmore a {
+	color: var(--wp--preset--color--kcdw-sienna);
+	text-decoration: none;
+}
+
+.card__readmore a:hover,
+.card__readmore a:focus {
+	color: var(--wp--preset--color--kcdw-teal);
+}
+
+/* --- ISSUE CARDS --- */
+
+.section--issues .wp-block-column {
+	display: flex;
+	flex-direction: column;
+}
+
+.issue-card {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+
+.issue-card h3 {
+	font-size: 1.25rem;
+	margin-block: 0 0.75rem;
+}
+
+/* --- LAWSUIT CARDS --- */
+
+.lawsuit-card {
+	border-inline-start: 3px solid var(--wp--preset--color--kcdw-sienna);
+	background: rgba(255, 255, 255, 0.05);
+	padding: 1.5rem;
+}
+
+.lawsuit-card + .lawsuit-card {
+	margin-block-start: 1rem;
+}
+
+.lawsuit-card__status {
+	font-family: var(--wp--preset--font-family--ibm-plex-mono);
+	font-size: 0.6875rem;
+	font-weight: 500;
+	letter-spacing: 0.12em;
+	margin-block: 0 0.25rem;
+	text-transform: uppercase;
+}
+
+.lawsuit-card h4 {
+	margin-block: 0 0.5rem;
+}
+
+/* --- NEWS CARDS --- */
+
+.news-card {
+	border: 1px solid var(--wp--preset--color--kcdw-mist);
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.news-card .wp-block-post-featured-image img {
+	block-size: 100%;
+	inline-size: 100%;
+	object-fit: cover;
+}
+
+.news-card__body {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+
+/* --- ACTION CARDS --- */
+
+.action-card {
+	border-block-start: 3px solid var(--wp--preset--color--kcdw-sienna);
+	padding-block-start: 1.5rem;
+}
+
+.action-card h4 {
+	margin-block: 0 0.75rem;
+}
+
+/* --- STAT BLOCKS --- */
+
+.issue-stat {
+	border-inline-start: 3px solid var(--wp--preset--color--kcdw-sienna);
+	display: flex;
+	flex-direction: column;
+	margin-block: 2rem;
+	padding-inline-start: 1.25rem;
+}
+
+.issue-stat__value {
+	color: var(--wp--preset--color--kcdw-teal);
+	font-family: var(--wp--preset--font-family--barlow-condensed);
+	font-size: clamp(2.5rem, 6vw, 4rem);
+	font-weight: 900;
+	line-height: 1;
+}
+
+.issue-stat__label {
+	color: var(--wp--preset--color--kcdw-mist);
+	font-size: 0.9375rem;
+	margin-block-start: 0.25rem;
+	max-inline-size: 40ch;
+}

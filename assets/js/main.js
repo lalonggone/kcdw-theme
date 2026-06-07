@@ -1,13 +1,17 @@
 /**
- * Animates elements when they enter the viewport.
+ * KCDW Theme — Main JS
+ * Animates elements when they scroll into the viewport.
  *
- * @param {Object}  options          - Configuration options.
- * @param {string}  options.selector - The CSS selector for elements to animate.
- * @param {boolean} options.once     - Whether to animate only once or every time the element enters the viewport.
- *
- * @returns {Function} Disconnects the observer after an element is animated.
+ * @package KCDW/Theme
  */
-export default function animateOnView( { selector = '.animate', once = true } = {} ) {
+
+document.addEventListener( 'DOMContentLoaded', runThemeScripts, { once: true } );
+
+function runThemeScripts() {
+	animateOnView();
+}
+
+function animateOnView( { selector = '.animate', once = true } = {} ) {
 	const observer = new IntersectionObserver(
 		( entries ) => {
 			for ( const entry of entries ) {

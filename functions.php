@@ -19,11 +19,11 @@ define( 'THEME_VERSION', wp_get_theme()->get( 'Version' ) );
 define( 'HANDLE_PREFIX', 'kcdw' );
 
 /**
- * Initialize the assets loader
+ * Enqueue theme assets
  *
  * @since 1.0.0
  */
-require_once get_theme_file_path( 'includes/enqueue/init.php' );
+require_once get_theme_file_path( 'includes/enqueue/assets.php' );
 
 /**
  * Enqueue Google Fonts

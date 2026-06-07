@@ -1,9 +1,14 @@
 /**
- * MAIN: WP EDITOR ONLY
+ * KCDW Theme — Editor Styles
+ * Loaded in the block editor via add_editor_style().
  *
  * @package KCDW/Theme/Styles
- * @version 1.0.0
  */
+
+@import "base.css";
+@import "components.css";
+
+/* --- EDITOR-SPECIFIC OVERRIDES --- */
 
 .editor-visual-editor__post-title-wrapper {
 	display: flex;
