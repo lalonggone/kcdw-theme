@@ -27,8 +27,6 @@ if ( ! function_exists( __NAMESPACE__ . '\\remove_core_blocks' ) ) :
 	function remove_core_blocks(): array {
 		$blocks = WP_Block_Type_Registry::get_instance()->get_all_registered();
 
-		ray( $blocks )->label( 'All Registered Blocks' );
-
 		// --- Design ---
 		// unset( $blocks['"core/accordion'] );
 		// unset( $blocks['"core/accordion-heading'] );

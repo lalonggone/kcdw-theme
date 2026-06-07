@@ -1,11 +1,49 @@
 /**
  * MAIN: FOOTER
  *
- * @package CassidyDC/BlockTheme/Styles
- * @version 1.0.0
+ * @package KCDW/Theme/Styles
  */
 
 .site-footer {
-	background: var(--wp--preset--color--primary);
-	color: var(--wp--preset--color--white);
+	background-color: var(--wp--preset--color--kcdw-forest);
+	color: var(--wp--preset--color--kcdw-mist);
+}
+
+.site-footer a {
+	color: var(--wp--preset--color--kcdw-mist);
+	text-decoration: none;
+	transition: color var(--transform-duration) ease-in-out;
+}
+
+.site-footer a:hover,
+.site-footer a:focus {
+	color: var(--wp--preset--color--kcdw-teal);
+}
+
+.site-footer__main {
+	padding-block: 3rem;
+	padding-inline: 1.5rem;
+}
+
+.site-footer__bottom {
+	background-color: var(--wp--preset--color--kcdw-midnight);
+	font-size: 0.8125rem;
+	padding-block: 1rem;
+	padding-inline: 1.5rem;
+}
+
+.site-footer__bottom p {
+	color: var(--wp--preset--color--kcdw-mist);
+	margin-block: 0;
+	opacity: 0.7;
+}
+
+@media screen and (width < 48rem) {
+	.site-footer__main {
+		padding-inline: 1rem;
+	}
+
+	.site-footer__bottom {
+		padding-inline: 1rem;
+	}
 }

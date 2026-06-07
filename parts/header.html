@@ -1,3 +1,51 @@
-<!-- wp:heading {"level":2} -->
-<h2 class="wp-block-heading">Site Header</h2>
-<!-- /wp:heading -->
+<!-- Template Part: Header -->
+<!-- Sticky nav bar: logo left, primary nav center-right, donate CTA far right -->
+<!-- Background/sticky handled by .site-header in CSS; this part provides inner layout -->
+
+<!-- wp:group {"className":"site-header__inner","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
+<div class="wp-block-group site-header__inner">
+
+	<!-- wp:site-logo {"width":160,"shouldSyncIcon":false} /-->
+
+	<!-- wp:navigation {"textColor":"kcdw-mist","overlayMenu":"mobile","overlayBackgroundColor":"kcdw-midnight","layout":{"type":"flex","justifyContent":"right","flexWrap":"nowrap"},"style":{"spacing":{"blockGap":"0.25rem"}}} -->
+
+		<!-- wp:navigation-submenu {"label":"The Fight","url":"#","type":"custom","kind":"custom"} -->
+			<!-- wp:navigation-link {"label":"Water Rights","url":"/the-fight/water-rights/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"Floodplain & Flood Risk","url":"/the-fight/floodplain-flood-risk/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"The Fake Town","url":"/the-fight/the-fake-town/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"Affordable Housing","url":"/the-fight/affordable-housing/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"Cultural Resources","url":"/the-fight/cultural-resources/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"Meet the Developer","url":"/the-fight/meet-the-developer/","kind":"custom"} /-->
+		<!-- /wp:navigation-submenu -->
+
+		<!-- wp:navigation-submenu {"label":"Our Lawsuits","url":"#","type":"custom","kind":"custom"} -->
+			<!-- wp:navigation-link {"label":"Water Rights Lawsuit","url":"/our-lawsuits/water-rights-lawsuit/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"SB 258","url":"/our-lawsuits/sb-258/","kind":"custom"} /-->
+		<!-- /wp:navigation-submenu -->
+
+		<!-- wp:navigation-submenu {"label":"In the News","url":"#","type":"custom","kind":"custom"} -->
+			<!-- wp:navigation-link {"label":"Press Coverage","url":"/in-the-news/press-coverage/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"Newsletter Archive","url":"/in-the-news/newsletter-archive/","kind":"custom"} /-->
+		<!-- /wp:navigation-submenu -->
+
+		<!-- wp:navigation-link {"label":"About","url":"/about/","kind":"custom"} /-->
+
+		<!-- wp:navigation-submenu {"label":"Take Action","url":"#","type":"custom","kind":"custom"} -->
+			<!-- wp:navigation-link {"label":"Sign the Petition","url":"/take-action/sign-the-petition/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"Show Up","url":"/take-action/show-up/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"Contact Officials","url":"/take-action/contact-officials/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"Spread the Word","url":"/take-action/spread-the-word/","kind":"custom"} /-->
+		<!-- /wp:navigation-submenu -->
+
+	<!-- /wp:navigation -->
+
+	<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+	<div class="wp-block-buttons">
+		<!-- wp:button {"backgroundColor":"kcdw-sienna","textColor":"kcdw-white","className":"is-style-fill"} -->
+		<div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-kcdw-sienna-background-color has-kcdw-white-color has-text-color has-background wp-element-button" href="/donate/">Donate</a></div>
+		<!-- /wp:button -->
+	</div>
+	<!-- /wp:buttons -->
+
+</div>
+<!-- /wp:group -->
