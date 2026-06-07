@@ -3,13 +3,10 @@
  * Template Name: Lawsuit
  * Template Post Type: page
  *
- * Renders SCF lawsuit fields: status badge, plaintiffs, court meta, summary,
- * latest update with date, optional court document link.
- * Block editor content renders below for additional legal detail.
- *
- * SCF fields used: lawsuit_status, lawsuit_plaintiffs, lawsuit_filed_date,
- *   lawsuit_court, lawsuit_case_number, lawsuit_summary, lawsuit_latest_update,
- *   lawsuit_latest_update_date, lawsuit_document_url
+ * Content is keyed by post slug — edit the $lawsuits array below to update
+ * status, plaintiffs, court meta, summary, and latest update.
+ * Block editor content (the_content) renders below for detailed filings,
+ * transcripts, or supplemental legal context.
  */
 
 declare( strict_types = 1 );
@@ -18,16 +15,33 @@ if ( have_posts() ) {
 	the_post();
 }
 
-$status      = get_field( 'lawsuit_status' )              ?: 'active';
-$plaintiffs  = get_field( 'lawsuit_plaintiffs' );
-$filed       = get_field( 'lawsuit_filed_date' );
-$court       = get_field( 'lawsuit_court' );
-$case_num    = get_field( 'lawsuit_case_number' );
-$summary     = get_field( 'lawsuit_summary' );
-$update      = get_field( 'lawsuit_latest_update' );
-$update_date = get_field( 'lawsuit_latest_update_date' );
-$doc_url     = get_field( 'lawsuit_document_url' );
-$has_content = trim( strip_tags( get_the_content() ) ) !== '';
+$lawsuits = [
+
+	'water-rights-lawsuit' => [
+		'status'      => 'active',
+		'plaintiffs'  => 'Living Rivers, Kane Creek Development Watch',
+		'filed'       => 'June 28, 2025',
+		'court'       => 'Utah Seventh District Court, Grand County',
+		'case_num'    => '270700892',
+		'summary'     => 'KCDW and Living Rivers filed suit challenging the Utah Division of Water Rights\' approval of a diversion permit for the Echo Canyon resort development. The permit would authorize withdrawal of up to 550 acre-feet per year from the Colorado River — water that does not exist in a system already overallocated by more than 20% of average annual flow.',
+		'update'      => 'The developer\'s motion to dismiss was denied in full. Discovery is underway. The court has set a scheduling conference for briefing on the merits.',
+		'update_date' => 'September 15, 2025',
+		'doc_url'     => '',
+	],
+
+	'latest-information-2' => [
+		'status'      => 'active',
+		'plaintiffs'  => 'Kane Creek Development Watch',
+		'filed'       => 'April 1, 2025',
+		'court'       => 'Utah Seventh District Court, Grand County',
+		'case_num'    => '270700771',
+		'summary'     => 'SB 258 was signed into Utah law in March 2025, creating a special land use designation for the Echo Canyon parcel that bypassed standard Grand County zoning review and environmental impact assessment requirements. KCDW filed suit immediately, arguing the bill constitutes legislative spot-zoning and violates the Utah Constitution\'s uniform operation of laws clause.',
+		'update'      => 'Briefing on cross-motions for summary judgment is ongoing. The court denied the developer\'s motion to strike KCDW\'s expert witness testimony.',
+		'update_date' => 'November 1, 2025',
+		'doc_url'     => '',
+	],
+
+];
 
 $status_labels = [
 	'active'    => 'Active',
@@ -35,7 +49,20 @@ $status_labels = [
 	'settled'   => 'Settled',
 	'dismissed' => 'Dismissed',
 ];
+
+$slug         = get_post_field( 'post_name' );
+$lawsuit      = $lawsuits[ $slug ] ?? [];
+$status       = $lawsuit['status']      ?? 'active';
 $status_label = $status_labels[ $status ] ?? ucfirst( $status );
+$plaintiffs   = $lawsuit['plaintiffs']  ?? '';
+$filed        = $lawsuit['filed']       ?? '';
+$court        = $lawsuit['court']       ?? '';
+$case_num     = $lawsuit['case_num']    ?? '';
+$summary      = $lawsuit['summary']     ?? '';
+$update       = $lawsuit['update']      ?? '';
+$update_date  = $lawsuit['update_date'] ?? '';
+$doc_url      = $lawsuit['doc_url']     ?? '';
+$has_content  = trim( strip_tags( get_the_content() ) ) !== '';
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -51,7 +78,7 @@ $status_label = $status_labels[ $status ] ?? ucfirst( $status );
 
 <main id="main-content">
 
-	<!-- LAWSUIT HEADER ----------------------------------------------------- -->
+	<!-- LAWSUIT HEADER -->
 	<section class="lawsuit-header">
 		<div class="lawsuit-header__inner">
 
@@ -93,17 +120,17 @@ $status_label = $status_labels[ $status ] ?? ucfirst( $status );
 		</div>
 	</section>
 
-	<!-- SUMMARY ------------------------------------------------------------ -->
+	<!-- SUMMARY -->
 	<?php if ( $summary ) : ?>
 		<section class="lawsuit-summary">
 			<div class="lawsuit-summary__inner">
 				<h2>What We're Challenging</h2>
-				<p><?php echo wp_kses_post( $summary ); ?></p>
+				<p><?php echo esc_html( $summary ); ?></p>
 			</div>
 		</section>
 	<?php endif; ?>
 
-	<!-- LATEST UPDATE ------------------------------------------------------ -->
+	<!-- LATEST UPDATE -->
 	<?php if ( $update ) : ?>
 		<section class="lawsuit-update">
 			<div class="lawsuit-update__inner">
@@ -113,7 +140,7 @@ $status_label = $status_labels[ $status ] ?? ucfirst( $status );
 				<?php endif; ?>
 
 				<h2>Latest Update</h2>
-				<p><?php echo wp_kses_post( $update ); ?></p>
+				<p><?php echo esc_html( $update ); ?></p>
 
 				<?php if ( $doc_url ) : ?>
 					<a class="lawsuit-update__doc-link"
@@ -127,7 +154,7 @@ $status_label = $status_labels[ $status ] ?? ucfirst( $status );
 		</section>
 	<?php endif; ?>
 
-	<!-- BLOCK EDITOR CONTENT ----------------------------------------------- -->
+	<!-- BLOCK EDITOR CONTENT (filings, transcripts, legal detail) -->
 	<?php if ( $has_content ) : ?>
 		<section class="lawsuit-content">
 			<div class="lawsuit-content__inner">
