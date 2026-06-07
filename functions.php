@@ -65,8 +65,7 @@ require_once get_theme_file_path( 'includes/core/admin-bar.php' );
  *
  * @since 1.0.0
  */
-// Before uncommenting the next line, update "USER_NAME" to the username of the user you want to allow SVG uploads for. This is a security risk, so be sure to only allow this for trusted users.
-// require_once get_theme_file_path( 'includes/core/admin-permissions.php' );
+require_once get_theme_file_path( 'includes/core/admin-permissions.php' );
 
 /**
  * Removes unwanted Core WordPress features

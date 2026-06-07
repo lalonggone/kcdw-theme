@@ -22,7 +22,7 @@ if ( ! function_exists( __NAMESPACE__ . '\\add_file_types_to_uploads' ) ) :
 	 */
 	function add_file_types_to_uploads( array $file_types ): array {
 		$current_user = wp_get_current_user();
-		if ( $current_user->user_login === 'USER_NAME' ) {
+		if ( $current_user->user_login === 'laura' ) {
 			$new_filetypes        = [];
 			$new_filetypes['svg'] = 'image/svg+xml';
 			$file_types           = array_merge( $file_types, $new_filetypes );
