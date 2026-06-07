@@ -15,7 +15,8 @@
  *   template-donate   → Donate page
  *
  * Global options (alert bar, next hearing, petition count, social URLs)
- * are under Appearance → Site Options in wp-admin.
+ * appear as a top-level "Site Options" item in the WP admin sidebar,
+ * between Comments and Appearance (position 30).
  *
  * @package CassidyDC\BlockTheme\Fields
  */
