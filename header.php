@@ -21,7 +21,21 @@
 	<div class="site-header__inner">
 
 		<a class="site-header__logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-			<?php if ( has_custom_logo() ) : the_custom_logo(); else : ?>
+			<?php
+			// Output the logo image directly rather than the_custom_logo(), which
+			// would wrap the image in its own <a> and nest anchors inside this link.
+			$kcdw_logo_id = get_theme_mod( 'custom_logo' );
+			if ( $kcdw_logo_id ) :
+				echo wp_get_attachment_image(
+					$kcdw_logo_id,
+					'full',
+					false,
+					[
+						'class' => 'site-header__logo-img',
+						'alt'   => esc_attr( get_bloginfo( 'name' ) ),
+					]
+				);
+			else : ?>
 				<span class="site-header__site-name"><?php bloginfo( 'name' ); ?></span>
 			<?php endif; ?>
 		</a>
