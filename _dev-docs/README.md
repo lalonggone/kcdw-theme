@@ -123,6 +123,60 @@ before creating them, and `update_field()` overwrites rather than duplicates.
 
 ---
 
+## build-primary-menu.php
+
+Rebuilds the menu assigned to the `primary` theme location to the canonical
+KCDW nav: four section parents with dropdown children, plus About and Donate.
+
+**Key behaviours:**
+
+- Pages are resolved **by path/slug** (`get_page_by_path`), never by post ID,
+  so the same script produces the correct menu on every environment even
+  though IDs differ. Pages that can't be resolved are reported and skipped.
+- **Idempotent** — clears the target menu's items and rebuilds from the spec,
+  so re-running always converges to the same 20-item tree.
+- If no menu is assigned to `primary`, it creates one and assigns it.
+
+**The tree it builds:**
+
+```
+The Fight ▾      → Water Rights, Floodplain & Flood Risk, The Fake Town,
+                   Affordable Housing, Cultural Resources, Meet the Developer
+Our Lawsuits ▾   → Water Rights Lawsuit, SB258
+Take Action ▾    → Sign the Petition, Contact Officials, Show Up, Spread the Word
+In the News ▾    → Press Coverage, Newsletter Archive
+About
+Donate
+```
+
+### How to run
+
+```bash
+wp db export backup-pre-menu-$(date +%Y%m%d).sql                          # backup
+wp eval-file wp-content/themes/kcdw/_dev-docs/build-primary-menu.php       # dry run
+wp eval-file wp-content/themes/kcdw/_dev-docs/build-primary-menu.php write # apply
+```
+
+> **Note:** `_dev-docs/` is excluded from the staging rsync deploy, so this
+> file does **not** arrive on the server via CI. Get it onto staging another
+> way (git pull on the server, or upload), then run it there.
+
+---
+
+## DB Script Application Status
+
+DB/content scripts apply per environment (the deploy ships code only). Track
+where each has been run. **Staging is the only deployed environment for now.**
+
+| Script                  | Local | Staging | Production |
+| ----------------------- | ----- | ------- | ---------- |
+| seed-content.php        | ✅    | ❓ verify | —          |
+| build-primary-menu.php  | ✅    | ⬜ pending | —          |
+
+Legend: ✅ applied · ⬜ not yet applied · ❓ unknown, needs verifying · — n/a
+
+---
+
 ## Deployment Pipeline
 
 **Always run scripts in this order. Never skip a stage.**
