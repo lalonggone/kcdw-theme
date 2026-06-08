@@ -24,6 +24,9 @@
 			<?php
 			// Output the logo image directly rather than the_custom_logo(), which
 			// would wrap the image in its own <a> and nest anchors inside this link.
+			// A Customizer logo (custom_logo theme mod) takes precedence if set;
+			// otherwise fall back to the logo bundled with the theme so the brand
+			// mark ships with the code and renders on every environment.
 			$kcdw_logo_id = get_theme_mod( 'custom_logo' );
 			if ( $kcdw_logo_id ) :
 				echo wp_get_attachment_image(
@@ -36,7 +39,13 @@
 					]
 				);
 			else : ?>
-				<span class="site-header__site-name"><?php bloginfo( 'name' ); ?></span>
+				<img
+					class="site-header__logo-img"
+					src="<?php echo esc_url( get_theme_file_uri( 'assets/images/logos/kane-creek-development-watch.png' ) ); ?>"
+					width="768"
+					height="201"
+					alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"
+				>
 			<?php endif; ?>
 		</a>
 
