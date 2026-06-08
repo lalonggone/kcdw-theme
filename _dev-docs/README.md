@@ -175,6 +175,51 @@ staging or production. Run independently on each.
 
 ---
 
+## Automated Deploy — GitHub Actions → Bluehost Staging
+
+The theme deploys to Bluehost staging automatically on every push to `main`
+via `.github/workflows/deploy-staging.yml`.
+
+**How it works:**
+
+- SSHes into Bluehost with a private key stored as a GitHub secret.
+- `rsync`s the repo (which is the theme folder) into the remote theme dir:
+  `/home3/zzfojqmy/public_html/staging/8258/wp-content/themes/kcdw/`
+- **Additive only** — no `--delete`. Files are added/updated, never removed
+  from the server.
+- **Theme only** — plugins, uploads, the database, and every other server
+  directory are untouched.
+- Excluded from the sync: `.git/`, `.github/`, `_dev-docs/`, `AUDIT.md`,
+  `CLAUDE.md`, `CHANGELOG.md`, `README.md`, `node_modules/`.
+
+### Required GitHub secrets
+
+Set these in the repo: **Settings → Secrets and variables → Actions → New
+repository secret**.
+
+| Secret            | Value                                              |
+| ----------------- | -------------------------------------------------- |
+| `SSH_PRIVATE_KEY` | Private key authorized for Bluehost SSH (full PEM, including the `-----BEGIN/END-----` lines) |
+| `SSH_HOST`        | `162.241.253.174`                                  |
+| `SSH_USER`        | `zzfojqmy`                                         |
+
+**Generating the key pair (one time):**
+
+```bash
+ssh-keygen -t ed25519 -C "github-actions-kcdw-deploy" -f kcdw_deploy_key
+```
+
+- Paste the **private** key (`kcdw_deploy_key`) into the `SSH_PRIVATE_KEY` secret.
+- Append the **public** key (`kcdw_deploy_key.pub`) to
+  `~/.ssh/authorized_keys` on Bluehost for the `zzfojqmy` user (via cPanel
+  → SSH Access, or `ssh-copy-id`).
+- Delete the local copies of the key once both are placed.
+
+Pushes to `main` then deploy automatically. Watch runs under the repo's
+**Actions** tab.
+
+---
+
 ## DB Connection (Local by Flywheel)
 
 If WP-CLI cannot connect to the DB, use the socket directly:

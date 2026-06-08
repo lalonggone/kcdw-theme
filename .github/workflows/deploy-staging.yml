@@ -1,0 +1,62 @@
+name: Deploy theme to Bluehost staging
+
+# Deploys the kcdw theme to the Bluehost staging site on every push to main.
+#
+# This repo's root IS the theme folder, so the whole checkout is rsynced into
+# the remote theme directory. The sync is additive only:
+#   - NO --delete: files are added/updated, never removed on the server.
+#   - Only the theme directory is touched; plugins, uploads, the database, and
+#     every other server directory are left completely alone.
+#
+# Required repository secrets (see _dev-docs/README.md):
+#   SSH_PRIVATE_KEY  - private key authorized for Bluehost SSH
+#   SSH_HOST         - 162.241.253.174
+#   SSH_USER         - zzfojqmy
+
+on:
+  push:
+    branches:
+      - main
+
+# Prevent overlapping deploys from racing on the server.
+concurrency:
+  group: deploy-staging
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: rsync to staging
+    runs-on: ubuntu-latest
+
+    env:
+      REMOTE_PATH: /home3/zzfojqmy/public_html/staging/8258/wp-content/themes/kcdw/
+
+    steps:
+      - name: Checkout theme
+        uses: actions/checkout@v4
+
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Deploy with rsync (additive, no deletions)
+        run: |
+          rsync -rlvz \
+            --no-perms --no-owner --no-group \
+            -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=yes" \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='_dev-docs/' \
+            --exclude='AUDIT.md' \
+            --exclude='CLAUDE.md' \
+            --exclude='CHANGELOG.md' \
+            --exclude='README.md' \
+            --exclude='node_modules/' \
+            ./ "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${REMOTE_PATH}"
+
+      - name: Clean up SSH key
+        if: always()
+        run: rm -f ~/.ssh/deploy_key

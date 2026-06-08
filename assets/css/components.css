@@ -16,7 +16,7 @@
 }
 
 .site-header__nav .nav__menu a {
-	color: var(--wp--preset--color--kcdw-mist);
+	color: var(--wp--preset--color--kcdw-midnight);
 	display: block;
 	font-family: var(--wp--preset--font-family--barlow);
 	font-size: 0.8125rem;
@@ -32,7 +32,7 @@
 
 .site-header__nav .nav__menu a:hover,
 .site-header__nav .nav__menu a:focus {
-	color: var(--wp--preset--color--kcdw-teal);
+	color: var(--wp--preset--color--kcdw-sienna);
 }
 
 .site-header__nav .menu-item {
@@ -40,8 +40,9 @@
 }
 
 .site-header__nav .sub-menu {
-	background-color: var(--wp--preset--color--kcdw-midnight);
+	background-color: var(--wp--preset--color--kcdw-white);
 	border-top: 2px solid var(--wp--preset--color--kcdw-sienna);
+	box-shadow: 0 8px 24px rgba(11, 39, 44, 0.12);
 	list-style: none;
 	margin: 0;
 	min-width: 14rem;
@@ -84,7 +85,7 @@
 }
 
 .site-header__menu-toggle span {
-	background-color: var(--wp--preset--color--kcdw-mist);
+	background-color: var(--wp--preset--color--kcdw-midnight);
 	border-radius: 2px;
 	display: block;
 	height: 2px;
@@ -203,7 +204,9 @@
 	}
 
 	.site-header__nav {
-		background-color: var(--wp--preset--color--kcdw-midnight);
+		background-color: var(--wp--preset--color--kcdw-white);
+		border-bottom: 1px solid var(--wp--preset--color--kcdw-mist);
+		box-shadow: 0 8px 24px rgba(11, 39, 44, 0.12);
 		display: none;
 		inset-inline: 0;
 		padding-block: 1rem;
@@ -240,8 +243,9 @@
 /* --- HEADER --- */
 
 .site-header {
-	background-color: var(--wp--preset--color--kcdw-midnight);
-	color: var(--wp--preset--color--kcdw-mist);
+	background-color: var(--wp--preset--color--kcdw-white);
+	border-bottom: 1px solid var(--wp--preset--color--kcdw-mist);
+	color: var(--wp--preset--color--kcdw-body);
 	position: sticky;
 	top: 0;
 	z-index: 100;
@@ -265,6 +269,18 @@ html.admin-bar .site-header {
 	justify-content: space-between;
 	padding-block: 0.875rem;
 	padding-inline: 1.5rem;
+}
+
+.site-header__logo {
+	display: inline-flex;
+	flex-shrink: 0;
+}
+
+.site-header__logo-img {
+	display: block;
+	height: auto;
+	max-width: 240px;
+	width: 100%;
 }
 
 .site-header .wp-block-navigation a {
@@ -319,6 +335,10 @@ html.admin-bar .site-header {
 @media screen and (width < 48rem) {
 	.site-header__inner {
 		padding-inline: 1rem;
+	}
+
+	.site-header__logo-img {
+		max-width: 180px;
 	}
 }
 
