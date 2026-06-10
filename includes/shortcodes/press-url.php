@@ -14,6 +14,6 @@ add_shortcode( 'press_url', function (): string {
 	if ( ! $url ) {
 		return '';
 	}
-	$label = __( 'Read the original article', 'kcdw-theme' );
+	$label = __( 'Read the original article', 'kcdw' );
 	return '<a class="press-single__link" href="' . \esc_url( $url ) . '" target="_blank" rel="noopener noreferrer">' . \esc_html( $label ) . ' &rarr;</a>';
 } );

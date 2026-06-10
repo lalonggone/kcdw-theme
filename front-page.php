@@ -130,18 +130,7 @@ get_header();
 		<?php if ( $kcdw_news->have_posts() ) : ?>
 			<div class="news-grid">
 				<?php while ( $kcdw_news->have_posts() ) : $kcdw_news->the_post(); ?>
-					<article class="news-card">
-						<?php if ( has_post_thumbnail() ) : ?>
-							<a href="<?php the_permalink(); ?>" class="news-card__image-link" tabindex="-1" aria-hidden="true">
-								<?php the_post_thumbnail( 'medium_large', [ 'class' => 'news-card__image', 'loading' => 'lazy' ] ); ?>
-							</a>
-						<?php endif; ?>
-						<div class="news-card__body">
-							<time class="news-card__date" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php the_date(); ?></time>
-							<h3 class="news-card__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-							<?php the_excerpt(); ?>
-						</div>
-					</article>
+					<?php get_template_part( 'parts/card', 'news', [ 'heading_level' => 'h3' ] ); ?>
 				<?php endwhile; wp_reset_postdata(); ?>
 			</div>
 		<?php else : ?>

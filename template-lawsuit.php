@@ -64,17 +64,7 @@ $update_date  = $lawsuit['update_date'] ?? '';
 $doc_url      = $lawsuit['doc_url']     ?? '';
 $has_content  = trim( strip_tags( get_the_content() ) ) !== '';
 ?>
-<!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-<head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<?php wp_head(); ?>
-</head>
-<body <?php body_class( 'template-lawsuit' ); ?>>
-<?php wp_body_open(); ?>
-
-<header class="site-header"><?php block_template_part( 'header' ); ?></header>
+<?php get_header(); ?>
 
 <main id="main-content">
 
@@ -165,8 +155,4 @@ $has_content  = trim( strip_tags( get_the_content() ) ) !== '';
 
 </main>
 
-<?php block_template_part( 'footer' ); ?>
-
-<?php wp_footer(); ?>
-</body>
-</html>
+<?php get_footer(); ?>

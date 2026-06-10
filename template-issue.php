@@ -90,17 +90,7 @@ $cta_label   = $issue['cta_label'] ?? 'Sign the Petition';
 $cta_url     = $issue['cta_url']   ?? '/take-action/sign-the-petition/';
 $has_content = trim( strip_tags( get_the_content() ) ) !== '';
 ?>
-<!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-<head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<?php wp_head(); ?>
-</head>
-<body <?php body_class( 'template-issue' ); ?>>
-<?php wp_body_open(); ?>
-
-<header class="site-header"><?php block_template_part( 'header' ); ?></header>
+<?php get_header(); ?>
 
 <main id="main-content">
 
@@ -126,7 +116,7 @@ $has_content = trim( strip_tags( get_the_content() ) ) !== '';
 			<?php endif; ?>
 
 			<p class="issue-hero__cta">
-				<a class="wp-element-button" href="<?php echo esc_url( $cta_url ); ?>">
+				<a class="wp-element-button" href="<?php echo esc_url( home_url( $cta_url ) ); ?>">
 					<?php echo esc_html( $cta_label ); ?>
 				</a>
 			</p>
@@ -149,17 +139,13 @@ $has_content = trim( strip_tags( get_the_content() ) ) !== '';
 			<p>Stop Echo Canyon. Add your name.</p>
 			<div class="issue-action-strip__buttons">
 				<a class="wp-element-button issue-action-strip__primary"
-				   href="/take-action/sign-the-petition/">Sign the Petition</a>
+				   href="<?php echo esc_url( home_url( '/take-action/sign-the-petition/' ) ); ?>">Sign the Petition</a>
 				<a class="wp-element-button issue-action-strip__secondary"
-				   href="/donate/">Donate</a>
+				   href="<?php echo esc_url( home_url( '/donate/' ) ); ?>">Donate</a>
 			</div>
 		</div>
 	</section>
 
 </main>
 
-<?php block_template_part( 'footer' ); ?>
-
-<?php wp_footer(); ?>
-</body>
-</html>
+<?php get_footer(); ?>

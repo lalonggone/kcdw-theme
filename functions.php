@@ -85,13 +85,6 @@ require_once get_theme_file_path( 'includes/core/admin-permissions.php' );
 require_once get_theme_file_path( 'includes/core/wp-cleanup.php' );
 
 /**
- * Add animate script to HTML head
- *
- * @since 1.0.0
- */
-require_once get_theme_file_path( 'includes/head/animate-script.php' );
-
-/**
  * Add Favicons to HTML head
  *
  * @since 1.0.0

@@ -55,7 +55,7 @@ $tree = [
 		[ 'path' => 'in-the-news/newsletter-archive', 'label' => 'Newsletter Archive' ],
 	] ],
 	[ 'path' => 'about',  'label' => 'About' ],
-	[ 'path' => 'donate', 'label' => 'Donate' ],
+	// Donate is intentionally omitted — the header has a dedicated Donate button.
 ];
 
 $missing = [];

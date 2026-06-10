@@ -108,7 +108,13 @@
 	text-align: center;
 	text-decoration: none;
 	text-transform: uppercase;
-	transition: filter var(--transform-duration) ease-in-out;
+	/* Transition every property a button variant changes on hover, so the
+	   sienna (filter) and outline (background/color) buttons animate alike. */
+	transition:
+		background-color var(--btn-duration) ease,
+		border-color var(--btn-duration) ease,
+		color var(--btn-duration) ease,
+		filter var(--btn-duration) ease;
 }
 
 .btn--sienna {
@@ -283,55 +289,6 @@ html.admin-bar .site-header {
 	width: 100%;
 }
 
-.site-header .wp-block-navigation a {
-	color: var(--wp--preset--color--kcdw-mist);
-	font-family: var(--wp--preset--font-family--barlow);
-	font-size: 0.8125rem;
-	font-weight: 600;
-	letter-spacing: 0.06em;
-	text-decoration: none;
-	text-transform: uppercase;
-	transition: color var(--transform-duration) ease-in-out;
-}
-
-.site-header .wp-block-navigation a:hover,
-.site-header .wp-block-navigation a:focus {
-	color: var(--wp--preset--color--kcdw-teal);
-}
-
-.site-header .wp-block-navigation__submenu-container {
-	background-color: var(--wp--preset--color--kcdw-midnight);
-	border-top: 2px solid var(--wp--preset--color--kcdw-sienna);
-	min-width: 14rem;
-	padding-block: 0.5rem;
-}
-
-.site-header .wp-block-navigation__submenu-container a {
-	font-size: 0.8125rem;
-	font-weight: 400;
-	letter-spacing: 0.03em;
-	padding-block: 0.5rem;
-	padding-inline: 1rem;
-	text-transform: none;
-}
-
-.site-header .wp-block-navigation-item__label + svg {
-	fill: var(--wp--preset--color--kcdw-mist);
-	margin-inline-start: 0.25rem;
-}
-
-.site-header .wp-block-navigation__responsive-container.is-menu-open {
-	background-color: var(--wp--preset--color--kcdw-midnight);
-}
-
-.site-header .wp-block-button__link {
-	font-size: 0.8125rem;
-	letter-spacing: 0.08em;
-	padding-block: 0.5rem;
-	padding-inline: 1.25rem;
-	text-transform: uppercase;
-}
-
 @media screen and (width < 48rem) {
 	.site-header__inner {
 		padding-inline: 1rem;
@@ -386,67 +343,6 @@ html.admin-bar .site-header {
 	.site-footer__bottom {
 		padding-inline: 1rem;
 	}
-}
-
-/* --- BOXES --- */
-
-.boxes-wrapper {
-	display: flex;
-	flex-direction: column;
-}
-
-.boxes-wrapper > * {
-	inline-size: 100%;
-	margin-block: 0;
-}
-
-.box {
-	background: var(--wp--preset--color--primary);
-	inline-size: 100%;
-}
-
-/* --- GRIDS --- */
-
-.grid {
-	display: grid;
-}
-
-.grid > * {
-	inline-size: 100%;
-}
-
-:where(.grid-container-4) {
-	grid-template-columns: repeat(4, 1fr);
-}
-
-:where(.grid-container-3) {
-	grid-template-columns: repeat(3, 1fr);
-}
-
-:where(.grid-container-2) {
-	grid-template-columns: repeat(2, 1fr);
-}
-
-@media screen and (width < calc((1120 / 16) * 1rem)) {
-	:where(.grid-container-4, .grid-container-3) {
-		grid-template-columns: repeat(2, 1fr);
-	}
-}
-
-@media screen and (width < calc((768 / 16) * 1rem)) {
-	:where(.grid-container-4, .grid-container-3, .grid-container-2) {
-		grid-template-columns: 1fr;
-	}
-}
-
-/* --- HEROES (BASE) --- */
-
-.page-hero {
-	display: flex;
-}
-
-.page-hero .page-title {
-	margin-block: 0 !important;
 }
 
 /* --- ALERT BAR --- */

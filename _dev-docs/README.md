@@ -126,7 +126,8 @@ before creating them, and `update_field()` overwrites rather than duplicates.
 ## build-primary-menu.php
 
 Rebuilds the menu assigned to the `primary` theme location to the canonical
-KCDW nav: four section parents with dropdown children, plus About and Donate.
+KCDW nav: four section parents with dropdown children, plus About. (Donate is
+intentionally left out of the nav — the header has a dedicated Donate button.)
 
 **Key behaviours:**
 
@@ -134,7 +135,7 @@ KCDW nav: four section parents with dropdown children, plus About and Donate.
   so the same script produces the correct menu on every environment even
   though IDs differ. Pages that can't be resolved are reported and skipped.
 - **Idempotent** — clears the target menu's items and rebuilds from the spec,
-  so re-running always converges to the same 20-item tree.
+  so re-running always converges to the same 19-item tree.
 - If no menu is assigned to `primary`, it creates one and assigns it.
 
 **The tree it builds:**
@@ -146,7 +147,6 @@ Our Lawsuits ▾   → Water Rights Lawsuit, SB258
 Take Action ▾    → Sign the Petition, Contact Officials, Show Up, Spread the Word
 In the News ▾    → Press Coverage, Newsletter Archive
 About
-Donate
 ```
 
 ### How to run

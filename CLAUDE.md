@@ -50,6 +50,11 @@ volunteers. The theme must be:
 - Comment your block templates — other devs may touch this
 - Keep functions.php lean — custom functionality goes in plugins
 
+**See `CONVENTIONS.md`** for the living source of truth on tokens, type/spacing
+scale, breakpoints, color semantics, CSS file organization, naming, and PHP/markup
+patterns. Consult it before adding CSS or templates. `THEME-CONSISTENCY-AUDIT.md`
+tracks known inconsistencies and open decisions.
+
 ## Current Status
 Freshly scaffolded from jacobcassidy/wp-starter-fse-block-theme. The Divi
 theme is being replaced with this custom FSE theme. Content, DB, and select
